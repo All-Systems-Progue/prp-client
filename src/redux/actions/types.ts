@@ -1,0 +1,3 @@
+const REFRESH_EDITOR = "REFRESH_EDITOR";
+
+export { REFRESH_EDITOR };
