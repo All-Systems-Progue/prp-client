@@ -30,7 +30,7 @@ jobs:
         run: doctl registry login --expiry-seconds 1200
 
       - name: Push image to DigitalOcean Container Registry
-        run: docker push ${{ secrets.REGISTRY_NAME }}/prp-server:$(echo $GITHUB_SHA | head -c7)
+        run: docker push ${{ secrets.REGISTRY_NAME }}/prp-client:$(echo $GITHUB_SHA | head -c7)
 
       - name: Remove old images from container registry
         uses: ripplr-io/docr-image-remove@v1
