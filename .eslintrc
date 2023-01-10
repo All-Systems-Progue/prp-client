@@ -10,6 +10,7 @@
   "rules": {
     //"no-console": 2, // Remember, this means error!
     "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/no-var-requires": 0
+    "@typescript-eslint/no-var-requires": 0,
+    "semi": [2, "always"]
   }
 }
