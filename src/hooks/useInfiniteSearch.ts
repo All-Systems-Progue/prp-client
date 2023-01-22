@@ -2,7 +2,7 @@ import MeiliSearch from "meilisearch";
 import { useInfiniteQuery } from "react-query";
 
 const client = new MeiliSearch({
-  host: "http://127.0.0.1:7700/",
+  host: import.meta.env.VITE_MEILI_URL,
 });
 
 const attributes = ["_id", "entityType", "category", "subCategory", "content"];
