@@ -2714,10 +2714,10 @@ match-sorter@^6.0.2:
     "@babel/runtime" "^7.12.5"
     remove-accents "0.4.2"
 
-meilisearch@0.30.0:
-  version "0.30.0"
-  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.30.0.tgz#707f9a6b07440c496b965379616e084f112160ae"
-  integrity sha512-3y1hALOwTDpquYar+gDREqRasFPWKxkWAhk6h+RF+nKObPVf9N77wcTNvukGwOKbxRyJnKge0OPgAB1BkB9VVw==
+meilisearch@^0.32.0-v1.1.0-pre-release.0:
+  version "0.32.0-v1.1.0-pre-release.0"
+  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.32.0-v1.1.0-pre-release.0.tgz#d67a45c05625fe93bf5f7fee3d81169620b9068f"
+  integrity sha512-xO1k2z6KgOWJq4LeWHXa/Zy45dBxmxcIzJ6cPrhByl2otlZPbW6tXS/4cQWik81iTtbfx4pa+vS4kBpsXgVjmQ==
   dependencies:
     cross-fetch "^3.1.5"
 
