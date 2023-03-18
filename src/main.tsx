@@ -60,7 +60,7 @@ ReactDOM.render(
               loader: "dots",
               colorScheme: "light",
               colors: {
-                brand: ["#048E80"],
+                brand: [ "#048E80" ],
               },
               // primaryColor: "brand",
             }}

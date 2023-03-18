@@ -116,7 +116,7 @@ type NavLinkI = {
 
 export default function Navbar(): JSX.Element {
   const { classes, cx } = useStyles();
-  const [section, setSection] = useState("review");
+  const [ section, setSection ] = useState("review");
 
   useEffect(() => {
     window.location.pathname.includes("review")

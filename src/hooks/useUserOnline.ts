@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 
 export default () => {
   const navigate = useNavigate();
-  const [cookies, _] = useCookies(["token"]);
+  const [ cookies, _ ] = useCookies([ "token" ]);
 
   useEffect(() => {
     if (!cookies.token) {

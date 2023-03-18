@@ -9,7 +9,7 @@ export default function Popover({
   target: ReactElement;
   popover: string;
 }): JSX.Element {
-  const [opened, setOpened] = useState(false);
+  const [ opened, setOpened ] = useState(false);
 
   return (
     <MantinePopover

@@ -5,7 +5,7 @@ export interface IProfile {
   password: string;
 }
 
-export default interface IUser {
+ interface IUser {
   firstName: string;
   lastName: string;
   email: string | undefined;
@@ -15,3 +15,5 @@ export default interface IUser {
     token: string;
   }[];
 }
+
+export default IUser; 
