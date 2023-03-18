@@ -29,5 +29,5 @@ jobs:
         run: |
           npm install yarn
           yarn
-          yarn build
           yarn lint
+          yarn build
