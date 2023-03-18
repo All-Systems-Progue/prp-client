@@ -17,7 +17,7 @@ async function loginUser({ email, password }: IProfile) {
 }
 
 export default () => {
-  const [_, setCookie] = useCookies(["token"]);
+  const [ _, setCookie ] = useCookies([ "token" ]);
   const navigate = useNavigate();
 
   return useMutation("loginUser", loginUser, {

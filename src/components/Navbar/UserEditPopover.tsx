@@ -105,11 +105,11 @@ function User({ name, email, className }: UserProps) {
 }
 
 export default function UserPopover(): JSX.Element {
-  const [values, setValues] = useState({
+  const [ values, setValues ] = useState({
     name: "Bob Handsome",
     email: "bob@handsome.inc",
   });
-  const [opened, setOpened] = useState(false);
+  const [ opened, setOpened ] = useState(false);
   const theme = useMantineTheme();
 
   return (

@@ -21,7 +21,7 @@ export default function Header({
   isLoginPage?: boolean;
 }): JSX.Element {
   const theme = useMantineTheme();
-  const [opened, setOpened] = useState(false);
+  const [ opened, setOpened ] = useState(false);
 
   const headerLogo = (
     <Link to="/" style={{ margin: "auto" }}>

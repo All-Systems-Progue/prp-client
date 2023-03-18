@@ -11,7 +11,7 @@ import styles from "./Login.module.css";
 
 export default function Login(): JSX.Element {
   const navigate = useNavigate();
-  const [cookies, _] = useCookies(["token"]);
+  const [ cookies, _ ] = useCookies([ "token" ]);
 
   useEffect(() => {
     if (cookies.token) {
@@ -53,7 +53,8 @@ export default function Login(): JSX.Element {
       asideOffsetBreakpoint="sm"
       fixed
       header={<Header isLoginPage />}
-      children={children}
-    />
+    >
+      {children}
+    </AppShell>
   );
 }

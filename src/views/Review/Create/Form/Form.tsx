@@ -19,7 +19,7 @@ import useFetchReview from "../../../../hooks/useFetchReview";
 import { useEffect } from "react";
 
 export default function Form(): JSX.Element {
-  const [cookies, _] = useCookies(["token"]);
+  const [ cookies, _ ] = useCookies([ "token" ]);
   const theme = useMantineTheme();
   const { id } = useParams();
   const isEditing = useIsEditing();
@@ -59,7 +59,7 @@ export default function Form(): JSX.Element {
         subCategory: "Loading...",
       });
     }
-  }, [status]);
+  }, [ status ]);
 
   const handleSubmit = async (values: typeof form.values) => {
     if (isEditing) {

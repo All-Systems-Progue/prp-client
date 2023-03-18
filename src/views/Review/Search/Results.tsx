@@ -29,13 +29,13 @@ export default function Results({
     if (inView) {
       fetchNextPage();
     }
-  }, [inView]);
+  }, [ inView, fetchNextPage ]);
 
   return (
     <React.Fragment>
       <Analytics
         searchTime={data?.pages[0].processingTimeMs ?? 0}
-        totalMatches={data?.pages[0].nbHits ?? 0}
+        totalMatches={data?.pages[0].estimatedTotalHits ?? 0}
       />
       {status === "loading" && (
         <Center>
@@ -53,7 +53,7 @@ export default function Results({
             {data.pages.map((page: { hits: any[] }) => (
               <React.Fragment key={uuidv4()}>
                 {page.hits.map((review: any) => (
-                  <ReviewCard idx={uuidv4()} review={review} />
+                  <ReviewCard key={uuidv4()} idx={uuidv4()} review={review} />
                 ))}
               </React.Fragment>
             ))}

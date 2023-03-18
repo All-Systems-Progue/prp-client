@@ -53,7 +53,7 @@ export default function Edit(): JSX.Element {
                 </List>
               </Text>
               <Text>
-                Note if a review point is 'Flagged for Review' it means the
+                Note if a review point is &lsquo;Flagged for Review&lsquo; it means the
                 built-in algorithm either detected a formatting issue or missing
                 fields
               </Text>

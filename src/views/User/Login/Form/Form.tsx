@@ -56,7 +56,7 @@ const useStyles = createStyles(
 
 export default function LoginForm(): JSX.Element {
   const theme = useMantineTheme();
-  const [focused, setFocused] = useState(false);
+  const [ focused, setFocused ] = useState(false);
   const login = useLogin();
 
   const form = useForm({

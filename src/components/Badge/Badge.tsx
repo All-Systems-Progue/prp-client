@@ -50,11 +50,12 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
     </UnstyledButton>
   )
 );
+UserButton.displayName = "UserButton";
 
 export default function Badge(): JSX.Element {
   const navigate = useNavigate();
-  const [opened, setOpened] = useState(false);
-  const [cookies, _, removeCookie] = useCookies(["token"]);
+  const [ opened, setOpened ] = useState(false);
+  const [ cookies, _, removeCookie ] = useCookies([ "token" ]);
   const { data, isSuccess } = useFetchProfile(cookies.token);
   const logout = useLogout();
 

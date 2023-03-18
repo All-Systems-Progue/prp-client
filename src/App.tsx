@@ -15,7 +15,7 @@ function App() {
     <Spotlight>
       <Router>
         <Routes>
-          <Route path="/" element={<UserLogin />} />]
+          <Route path="/" element={<UserLogin />} />
           <Route path="review">
             <Route path="create" element={<ReviewCreate />} />
             <Route path="edit">

@@ -1,15 +1,25 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   "rules": {
-    //"no-console": 2, // Remember, this means error!
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/no-var-requires": 0
+    "no-console": 2, 
+    "semi": [2, "always"],
+    "object-curly-spacing": [2, "always"],
+    "array-bracket-spacing": [2, "always"]
   }
 }

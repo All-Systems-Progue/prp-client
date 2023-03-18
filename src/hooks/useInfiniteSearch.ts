@@ -5,11 +5,11 @@ const client = new MeiliSearch({
   host: import.meta.env.VITE_MEILI_URL,
 });
 
-const attributes = ["_id", "entityType", "category", "subCategory", "content"];
+const attributes = [ "_id", "entityType", "category", "subCategory", "content" ];
 
 const settings = {
   searchableAttributes: attributes,
-  displayedAttributes: [...attributes, "isFlagged", "createdAt"],
+  displayedAttributes: [ ...attributes, "isFlagged", "createdAt" ],
 };
 
 /**
@@ -31,14 +31,14 @@ async function meiliFetch({
   const index = await client.getIndex("reviews");
   await index.updateSettings(settings);
   return await index.search(queryKey[1], {
-    attributesToHighlight: ["*"],
+    attributesToHighlight: [ "*" ],
     offset: pageParam,
     limit: 10,
   });
 }
 
 export default (searchTerm: string) =>
-  useInfiniteQuery(["meiliSearch", searchTerm], meiliFetch, {
+  useInfiniteQuery([ "meiliSearch", searchTerm ], meiliFetch, {
     getNextPageParam: (lastPage: any, _: any[]) => {
       const roundedTotal = Math.ceil(lastPage.nbHits / 10) * 10;
       const hasMoreData = lastPage.offset < roundedTotal;

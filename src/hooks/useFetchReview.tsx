@@ -7,7 +7,7 @@ import { refreshEditor } from "../redux/actions";
 import api from "../utils/api";
 
 async function fetchReview({ queryKey }: any) {
-  const [_, jwt, id] = queryKey;
+  const [ _, jwt, id ] = queryKey;
   const { data } = await api({
     method: "get",
     url: `/review/${id}`,
@@ -19,7 +19,7 @@ async function fetchReview({ queryKey }: any) {
 export default (jwt: string, id: string | undefined) => {
   const dispatch = useDispatch();
 
-  return useQuery(["fetchReview", jwt, id], fetchReview, {
+  return useQuery([ "fetchReview", jwt, id ], fetchReview, {
     onSuccess: (data: IReview) => {
       showNotification({
         title: "Editing Mode Enabled",
