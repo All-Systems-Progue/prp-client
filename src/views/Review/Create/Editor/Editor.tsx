@@ -14,6 +14,7 @@ export default function Editor(): JSX.Element {
 
   return (
     <CKEditor
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
       editor={ClassicEditor}
       data={id ? editorContent : ""}
       onChange={(_: any, editor: any) => {

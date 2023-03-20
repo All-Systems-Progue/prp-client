@@ -1,12 +1,12 @@
 import { showNotification } from "@mantine/notifications";
 import { useDispatch } from "react-redux";
-import { useQuery } from "react-query";
+import { QueryFunctionContext, useQuery } from "react-query";
 import { InfoCircle } from "tabler-icons-react";
 import IReview from "../interfaces/review";
 import { refreshEditor } from "../redux/actions";
 import api from "../utils/api";
 
-async function fetchReview({ queryKey }: any) {
+async function fetchReview({ queryKey }: QueryFunctionContext) {
   const [ _, jwt, id ] = queryKey;
   const { data } = await api({
     method: "get",

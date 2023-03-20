@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Navbar as MantineNavbar,
@@ -14,6 +14,7 @@ import {
   DatabaseImport,
   UserPlus,
   Activity,
+  IconProps,
 } from "tabler-icons-react";
 
 import UserEditPopover from "./UserEditPopover";
@@ -108,10 +109,10 @@ const tabs = {
   ],
 };
 
-type NavLinkI = {
+type NavItem = {
   link: string;
   label: string;
-  icon: any;
+  icon: FC<IconProps>;
 };
 
 export default function Navbar(): JSX.Element {
@@ -124,7 +125,7 @@ export default function Navbar(): JSX.Element {
       : setSection("user");
   }, []);
 
-  const links = (tabs as any)[section].map((item: NavLinkI) => (
+  const links = tabs[section as keyof typeof tabs].map((item: NavItem) => (
     <Link
       className={cx(classes.link, {
         [classes.linkActive]: window.location.pathname.includes(

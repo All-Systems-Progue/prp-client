@@ -14,13 +14,15 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
 
 import { camel2Title } from "./utils/error";
 import { store } from "./redux/store";
 
 import "./index.css";
 import App from "./App";
+
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 /**
  * GLOBAL ERROR HANDLING
@@ -41,7 +43,7 @@ const queryClient = new QueryClient({
     onError: (error: any, query: any) =>
       showNotification({
         title: "Error",
-        message: camel2Title(query.queryKey[0]) + " " + error.message,
+        message: camel2Title(query.queryKey[0]) + " " + error,
         color: "red",
         radius: "lg",
         icon: <X />,

@@ -12,12 +12,13 @@ import { Check, Maximize, TrashX } from "tabler-icons-react";
 
 import Popover from "../Popover";
 import { Link } from "react-router-dom";
+import { Hit } from "meilisearch";
 
 export default function ReviewCard({
   review,
   idx,
 }: {
-  review: any;
+  review: Hit;
   idx: string;
 }): JSX.Element {
   return (
@@ -25,13 +26,13 @@ export default function ReviewCard({
       <Grid>
         <Grid.Col span={4}>
           <Title mb="sm" order={1}>
-            {parse(review._formatted.entityType)}
+            {parse(review._formatted?.entityType)}
           </Title>
           <Title mb="sm" order={3}>
-            {parse(review._formatted.category)}
+            {parse(review._formatted?.category)}
           </Title>
           <Title mb="sm" order={6}>
-            {parse(review._formatted.subCategory)}
+            {parse(review._formatted?.subCategory)}
           </Title>
           <Box
             style={{
@@ -84,7 +85,7 @@ export default function ReviewCard({
             </Box>
           </Box>
         </Grid.Col>
-        <Grid.Col span={8}>{parse(review._formatted.content)}</Grid.Col>
+        <Grid.Col span={8}>{parse(review._formatted?.content)}</Grid.Col>
       </Grid>
     </Paper>
   );

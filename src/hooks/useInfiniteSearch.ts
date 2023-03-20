@@ -39,8 +39,8 @@ async function meiliFetch({
 
 export default (searchTerm: string) =>
   useInfiniteQuery([ "meiliSearch", searchTerm ], meiliFetch, {
-    getNextPageParam: (lastPage: any, _: any[]) => {
-      const roundedTotal = Math.ceil(lastPage.nbHits / 10) * 10;
+    getNextPageParam: (lastPage, allPages) => {
+      const roundedTotal = Math.ceil(lastPage.estimatedTotalHits / 10) * 10;
       const hasMoreData = lastPage.offset < roundedTotal;
       return hasMoreData ? lastPage.offset + lastPage.limit : undefined;
     },

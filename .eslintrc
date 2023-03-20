@@ -17,9 +17,11 @@
     "plugin:react/jsx-runtime"
   ],
   "rules": {
-    "no-console": 2, 
-    "semi": [2, "always"],
-    "object-curly-spacing": [2, "always"],
-    "array-bracket-spacing": [2, "always"]
+    "no-console": "error", 
+    "semi": ["error", "always"],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "object-curly-spacing": ["error", "always", { "arraysInObjects": true }],
+    "array-bracket-spacing": ["error", "always"]
   }
 }

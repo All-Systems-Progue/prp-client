@@ -1,7 +1,7 @@
-import { useQuery } from "react-query";
+import { QueryFunctionContext, useQuery } from "react-query";
 import api from "../utils/api";
 
-async function fetchProfile({ queryKey }: any) {
+async function fetchProfile({ queryKey }: QueryFunctionContext) {
   const [ _, jwt ] = queryKey;
   const { data } = await api({
     method: "get",

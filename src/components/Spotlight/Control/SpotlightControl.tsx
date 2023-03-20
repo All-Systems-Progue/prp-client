@@ -10,7 +10,7 @@ export default function SpotlightControl(): JSX.Element {
         width: "40%",
         alignSelf: "center",
         backgroundColor: "white",
-        color: theme.colors.brand as any,
+        color: theme.colors.brand[0],
       }}
       onClick={openSpotlight}
     >

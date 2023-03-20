@@ -66,7 +66,7 @@ export default function Badge(): JSX.Element {
         gutter={5}
         control={
           <UserButton
-            onClick={() => setOpened((o: any) => !o)}
+            onClick={() => setOpened((o) => !o)}
             name={isSuccess ? data.firstName + " " + data.lastName : "Login"}
             email={isSuccess ? data.email : null}
             icon={
@@ -86,7 +86,7 @@ export default function Badge(): JSX.Element {
           component={Link}
           icon={<Logout size={20} />}
           to="/user/logout"
-          onClick={(e: any) => {
+          onClick={(e) => {
             e.preventDefault();
             logout.mutate(cookies.token);
             removeCookie("token");

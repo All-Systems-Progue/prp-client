@@ -45,13 +45,13 @@ export default function Header({
         {headerLogo}
         <MantineBadge
           style={{
-            marginLeft: "-60px",
+            marginLeft: "-70px",
             marginTop: "-30px",
-            transform: "rotate(10deg)",
+            zIndex: 10
           }}
           color="violet"
         >
-          ALPHA!
+          ALPHA
         </MantineBadge>
       </Group>
       <SpotlightControl />

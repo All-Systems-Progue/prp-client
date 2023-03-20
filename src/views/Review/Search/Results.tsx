@@ -50,9 +50,9 @@ export default function Results({
       {status === "success" && (
         <>
           <Box mb="lg">
-            {data.pages.map((page: { hits: any[] }) => (
+            {data.pages.map((page) => (
               <React.Fragment key={uuidv4()}>
-                {page.hits.map((review: any) => (
+                {page.hits.map((review) => (
                   <ReviewCard key={uuidv4()} idx={uuidv4()} review={review} />
                 ))}
               </React.Fragment>
