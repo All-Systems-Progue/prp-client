@@ -3,6 +3,7 @@ import { useInfiniteQuery } from "react-query";
 
 const client = new MeiliSearch({
   host: import.meta.env.VITE_MEILI_URL,
+  apiKey: import.meta.env.VITE_MEILI_API_KEY,
 });
 
 const attributes = [ "_id", "entityType", "category", "subCategory", "content" ];

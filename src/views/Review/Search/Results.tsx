@@ -1,13 +1,13 @@
+import "./Search.module.css";
+
+import { Box, Center, Loader, Title } from "@mantine/core";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { v4 as uuidv4 } from "uuid";
-import { Box, Center, Loader, Title } from "@mantine/core";
 
-import useInfiniteSearch from "../../../hooks/useInfiniteSearch";
 import ReviewCard from "../../../components/ReviewCard";
+import useInfiniteSearch from "../../../hooks/useInfiniteSearch";
 import Analytics from "./Analytics";
-
-import "./Search.module.css";
 
 export default function Results({
   searchTerm,

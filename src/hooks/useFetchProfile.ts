@@ -1,4 +1,5 @@
 import { QueryFunctionContext, useQuery } from "react-query";
+
 import api from "../utils/api";
 
 async function fetchProfile({ queryKey }: QueryFunctionContext) {

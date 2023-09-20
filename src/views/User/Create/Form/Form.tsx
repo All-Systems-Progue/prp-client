@@ -1,4 +1,4 @@
-import { TextInput, Button, Group, Box } from "@mantine/core";
+import { Box,Button, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 export default function UserCreateForm(): JSX.Element {

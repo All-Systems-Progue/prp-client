@@ -1,19 +1,19 @@
-import { useState } from "react";
 import {
-  Burger,
-  Header as MantineHeader,
-  MediaQuery,
   Badge as MantineBadge,
-  useMantineTheme,
-  Image,
+  Burger,
   Group,
+  Header as MantineHeader,
+  Image,
+  MediaQuery,
+  useMantineTheme,
 } from "@mantine/core";
-
-import SpotlightControl from "../Spotlight/Control";
-import Badge from "../Badge";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import ProgueLogo from "/logo/progue-logo.svg";
+
+import Badge from "../Badge";
+import SpotlightControl from "../Spotlight/Control";
 
 export default function Header({
   isLoginPage = false,

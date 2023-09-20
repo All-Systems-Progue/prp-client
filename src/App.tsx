@@ -1,14 +1,12 @@
+import Spotlight from "@components/Spotlight";
+import NotFoundPage from "@views/404/NotFound";
+import ReviewCreate from "@views/Review/Create";
+import ReviewEdit from "@views/Review/Edit";
+import ReviewMerge from "@views/Review/Merge";
+import ReviewSearch from "@views/Review/Search";
+import UserCreate from "@views/User/Create";
+import UserLogin from "@views/User/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Spotlight from "./components/Spotlight";
-
-import NotFoundPage from "./views/404/NotFound";
-import ReviewCreate from "./views/Review/Create";
-import ReviewMerge from "./views/Review/Merge";
-import ReviewSearch from "./views/Review/Search";
-import ReviewEdit from "./views/Review/Edit";
-
-import UserCreate from "./views/User/Create";
-import UserLogin from "./views/User/Login";
 
 function App() {
   return (

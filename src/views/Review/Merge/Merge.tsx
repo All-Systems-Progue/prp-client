@@ -1,4 +1,3 @@
-import { Grid } from "@mantine/core";
 
 import Page from "../../../components/Page";
 import Dropzone from "./Dropzone";

@@ -1,20 +1,20 @@
+import {
+  createStyles,
+  Navbar as MantineNavbar,
+  SegmentedControl,
+} from "@mantine/core";
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Navbar as MantineNavbar,
-  SegmentedControl,
-  createStyles,
-} from "@mantine/core";
-import {
-  Search,
-  Messages,
-  ArrowMerge,
-  NewSection,
-  FileAnalytics,
-  DatabaseImport,
-  UserPlus,
   Activity,
+  ArrowMerge,
+  DatabaseImport,
+  FileAnalytics,
   IconProps,
+  Messages,
+  NewSection,
+  Search,
+  UserPlus,
 } from "tabler-icons-react";
 
 import UserEditPopover from "./UserEditPopover";

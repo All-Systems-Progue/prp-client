@@ -1,7 +1,7 @@
-import { ChangeEvent } from "react";
 import { TextInput, useMantineTheme } from "@mantine/core";
-import { Search as SearchIcon } from "tabler-icons-react";
 import { useFocusTrap } from "@mantine/hooks";
+import { ChangeEvent } from "react";
+import { Search as SearchIcon } from "tabler-icons-react";
 
 export default function Searchbar({
   onChangeCallback,

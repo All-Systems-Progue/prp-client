@@ -1,12 +1,12 @@
+import { Avatar, Group, Menu, Text, UnstyledButton } from "@mantine/core";
 import { forwardRef, useState } from "react";
+import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { Logout, Cookie, ChevronRight } from "tabler-icons-react";
-import { Group, Avatar, Text, Menu, UnstyledButton } from "@mantine/core";
+import { ChevronRight,Cookie, Logout } from "tabler-icons-react";
 
-import useLogout from "../../hooks/useLogout";
 import useFetchProfile from "../../hooks/useFetchProfile";
+import useLogout from "../../hooks/useLogout";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   name: string;

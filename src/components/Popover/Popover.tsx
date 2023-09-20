@@ -1,5 +1,5 @@
-import { ReactElement, useState } from "react";
 import { Popover as MantinePopover, Text } from "@mantine/core";
+import { ReactElement, useState } from "react";
 import { InfoCircle } from "tabler-icons-react";
 
 export default function Popover({

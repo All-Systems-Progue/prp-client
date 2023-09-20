@@ -1,22 +1,21 @@
 import {
-  TextInput,
+  Box,
   Button,
   Group,
-  Box,
   Loader,
-  ThemeIcon,
+  TextInput,
   useMantineTheme,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useCookies } from "react-cookie";
 
-import { RootState } from "../../../../redux/store";
 import useCreateReview from "../../../../hooks/useCreateReview";
-import useIsEditing from "../../../../hooks/useIsEditing";
 import useFetchReview from "../../../../hooks/useFetchReview";
-import { useEffect } from "react";
+import useIsEditing from "../../../../hooks/useIsEditing";
+import { RootState } from "../../../../redux/store";
 
 export default function Form(): JSX.Element {
   const [ cookies, _ ] = useCookies([ "token" ]);

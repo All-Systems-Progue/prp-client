@@ -1,16 +1,16 @@
-import { ChangeEvent, useState } from "react";
 import {
-  Popover,
+  ActionIcon,
+  Anchor,
+  Avatar,
   Button,
   Group,
-  TextInput,
-  Avatar,
-  Anchor,
+  Popover,
   Text,
-  ActionIcon,
+  TextInput,
   useMantineTheme,
 } from "@mantine/core";
 import { useForm, useMediaQuery } from "@mantine/hooks";
+import { ChangeEvent, useState } from "react";
 import { Edit } from "tabler-icons-react";
 
 interface UserEditFormProps {

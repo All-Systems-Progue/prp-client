@@ -1,8 +1,9 @@
-import { useMutation } from "react-query";
-import api from "../utils/api";
-import IReview from "../interfaces/review";
 import { showNotification } from "@mantine/notifications";
+import { useMutation } from "react-query";
 import { Check } from "tabler-icons-react";
+
+import IReview from "../interfaces/review";
+import api from "../utils/api";
 
 async function createReview({
   jwt,

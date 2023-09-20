@@ -1,10 +1,10 @@
-import { Group, Text, useMantineTheme, MantineTheme } from "@mantine/core";
-import { Upload, Photo, X, Icon as TablerIcon } from "tabler-icons-react";
+import { Group, MantineTheme,Text, useMantineTheme } from "@mantine/core";
 import {
   Dropzone as MantineDropzone,
   DropzoneStatus,
   IMAGE_MIME_TYPE,
 } from "@mantine/dropzone";
+import { Icon as TablerIcon,Photo, Upload, X } from "tabler-icons-react";
 
 function getIconColor(status: DropzoneStatus, theme: MantineTheme) {
   return status.accepted

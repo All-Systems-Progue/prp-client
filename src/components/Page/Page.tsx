@@ -1,12 +1,11 @@
-import React from "react";
 import { AppShell, useMantineTheme } from "@mantine/core";
+import React from "react";
 
-import Header from "../Header";
-import Navbar from "../Navbar";
 // import Sidebar from "../Sidebar";
 // import Footer from "../Footer";
-
 import userIsOnline from "../../hooks/useUserOnline";
+import Header from "../Header";
+import Navbar from "../Navbar";
 
 export default function Page({
   children,

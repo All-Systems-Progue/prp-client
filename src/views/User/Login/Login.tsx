@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
 import { AppShell, Grid, Image, useMantineTheme } from "@mantine/core";
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+
+import TeamCollabArt from "/art/team-colab.svg";
 
 import Header from "../../../components/Header";
 import LoginForm from "./Form";
-
-import TeamCollabArt from "/art/team-colab.svg";
 import styles from "./Login.module.css";
 
 export default function Login(): JSX.Element {

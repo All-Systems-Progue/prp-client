@@ -1,7 +1,7 @@
 import type { SpotlightAction } from "@mantine/spotlight";
 import { SpotlightProvider } from "@mantine/spotlight";
 import React from "react";
-import { Home, Database, FileText, Search } from "tabler-icons-react";
+import { Database, FileText, Home, Search } from "tabler-icons-react";
 
 const actions: SpotlightAction[] = [
   {

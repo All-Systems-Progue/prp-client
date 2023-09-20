@@ -1,19 +1,20 @@
 import {
-  Title,
-  Text,
-  Image,
-  Center,
   Box,
-  Grid,
+  Center,
   Container,
+  Grid,
+  Image,
   List,
+  Text,
+  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { Edit as EditIcon, Maximize } from "tabler-icons-react";
-import Page from "../../../components/Page";
 
 import EditCollabArt from "/art/edit-colab.svg";
+
+import Page from "../../../components/Page";
 
 export default function Edit(): JSX.Element {
   const theme = useMantineTheme();

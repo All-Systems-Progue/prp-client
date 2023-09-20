@@ -1,26 +1,26 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { CookiesProvider } from "react-cookie";
+import "./index.css";
+
 import { MantineProvider } from "@mantine/core";
-import { X } from "tabler-icons-react";
 import {
   NotificationsProvider,
   showNotification,
 } from "@mantine/notifications";
+import React from "react";
+import { CookiesProvider } from "react-cookie";
+import ReactDOM from "react-dom";
 import {
   MutationCache,
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "react-query";
-// import { ReactQueryDevtools } from "react-query/devtools";
+import { Provider } from "react-redux";
+import { X } from "tabler-icons-react";
 
-import { camel2Title } from "./utils/error";
-import { store } from "./redux/store";
-
-import "./index.css";
 import App from "./App";
+import { store } from "./redux/store";
+// import { ReactQueryDevtools } from "react-query/devtools";
+import { camel2Title } from "./utils/error";
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 

@@ -1,18 +1,18 @@
-import parse from "html-react-parser";
 import {
-  Box,
-  Badge,
-  Paper,
-  Grid,
-  Title,
   ActionIcon,
   Avatar,
+  Badge,
+  Box,
+  Grid,
+  Paper,
+  Title,
 } from "@mantine/core";
+import parse from "html-react-parser";
+import { Hit } from "meilisearch";
+import { Link } from "react-router-dom";
 import { Check, Maximize, TrashX } from "tabler-icons-react";
 
 import Popover from "../Popover";
-import { Link } from "react-router-dom";
-import { Hit } from "meilisearch";
 
 export default function ReviewCard({
   review,

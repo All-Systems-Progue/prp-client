@@ -1,5 +1,5 @@
-import HTMLtoDOCX from "html-to-docx";
 import { saveAs } from "file-saver";
+import HTMLtoDOCX from "html-to-docx";
 import moment from "moment";
 
 /**
@@ -24,4 +24,4 @@ const renderHTML = (str: string): HTMLElement => {
   return doc.body;
 };
 
-export { saveDocxFile, renderHTML };
+export { renderHTML,saveDocxFile };
