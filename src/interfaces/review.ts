@@ -1,4 +1,4 @@
- interface IReview {
+interface IReview {
   _id?: string;
   entityType: string;
   category: string;

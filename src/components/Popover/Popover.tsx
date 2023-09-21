@@ -2,14 +2,8 @@ import { Popover as MantinePopover, Text } from "@mantine/core";
 import { ReactElement, useState } from "react";
 import { InfoCircle } from "tabler-icons-react";
 
-export default function Popover({
-  target,
-  popover,
-}: {
-  target: ReactElement;
-  popover: string;
-}): JSX.Element {
-  const [ opened, setOpened ] = useState(false);
+export default function Popover({ target, popover }: { target: ReactElement; popover: string }): JSX.Element {
+  const [opened, setOpened] = useState(false);
 
   return (
     <MantinePopover
@@ -25,10 +19,7 @@ export default function Popover({
       spacing="xs"
       shadow="md"
       target={
-        <div
-          onMouseEnter={() => setOpened(true)}
-          onMouseLeave={() => setOpened(false)}
-        >
+        <div onMouseEnter={() => setOpened(true)} onMouseLeave={() => setOpened(false)}>
           {target}
         </div>
       }

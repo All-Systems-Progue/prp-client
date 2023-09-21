@@ -5,7 +5,7 @@ import Results from "./Results";
 import Searchbar from "./Searchbar";
 
 export default function Search(): JSX.Element {
-  const [ searchTerm, setSearchTerm ] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const callback = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);

@@ -15,13 +15,9 @@ import ProgueLogo from "/logo/progue-logo.svg";
 import Badge from "../Badge";
 import SpotlightControl from "../Spotlight/Control";
 
-export default function Header({
-  isLoginPage = false,
-}: {
-  isLoginPage?: boolean;
-}): JSX.Element {
+export default function Header({ isLoginPage = false }: { isLoginPage?: boolean }): JSX.Element {
   const theme = useMantineTheme();
-  const [ opened, setOpened ] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   const headerLogo = (
     <Link to="/" style={{ margin: "auto" }}>
@@ -47,7 +43,7 @@ export default function Header({
           style={{
             marginLeft: "-70px",
             marginTop: "-30px",
-            zIndex: 10
+            zIndex: 10,
           }}
           color="violet"
         >

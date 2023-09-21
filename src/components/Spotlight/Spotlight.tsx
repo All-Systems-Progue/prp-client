@@ -24,11 +24,7 @@ const actions: SpotlightAction[] = [
   },
 ];
 
-export default function Spotlight({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element {
+export default function Spotlight({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <SpotlightProvider
       actions={actions}

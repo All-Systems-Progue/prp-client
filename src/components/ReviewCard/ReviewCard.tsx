@@ -1,12 +1,4 @@
-import {
-  ActionIcon,
-  Avatar,
-  Badge,
-  Box,
-  Grid,
-  Paper,
-  Title,
-} from "@mantine/core";
+import { ActionIcon, Avatar, Badge, Box, Grid, Paper, Title } from "@mantine/core";
 import parse from "html-react-parser";
 import { Hit } from "meilisearch";
 import { Link } from "react-router-dom";
@@ -14,13 +6,7 @@ import { Check, Maximize, TrashX } from "tabler-icons-react";
 
 import Popover from "../Popover";
 
-export default function ReviewCard({
-  review,
-  idx,
-}: {
-  review: Hit;
-  idx: string;
-}): JSX.Element {
+export default function ReviewCard({ review, idx }: { review: Hit; idx: string }): JSX.Element {
   return (
     <Paper key={idx} shadow="lg" mb="lg" p="md">
       <Grid>
@@ -44,10 +30,7 @@ export default function ReviewCard({
             <Popover
               target={
                 <Link to={`/review/edit/${review._id}`}>
-                  <Avatar
-                    radius="xl"
-                    style={{ marginRight: "20px", display: "inline-block" }}
-                  >
+                  <Avatar radius="xl" style={{ marginRight: "20px", display: "inline-block" }}>
                     <Maximize size={24} />
                   </Avatar>
                 </Link>
@@ -57,10 +40,7 @@ export default function ReviewCard({
             <Popover
               target={
                 <Link to={`/review/delete/${review._id}`}>
-                  <Avatar
-                    radius="xl"
-                    style={{ marginRight: "20px", display: "inline-block" }}
-                  >
+                  <Avatar radius="xl" style={{ marginRight: "20px", display: "inline-block" }}>
                     <TrashX size={24} />
                   </Avatar>
                 </Link>

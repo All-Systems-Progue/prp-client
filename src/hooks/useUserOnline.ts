@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 export default () => {
   const navigate = useNavigate();
-  const [ cookies, _ ] = useCookies([ "token" ]);
+  const [cookies, _] = useCookies(["token"]);
 
   useEffect(() => {
     if (!cookies.token) {
       navigate("/");
     }
-  }, []);
+  }, [cookies.token, navigate]);
 };

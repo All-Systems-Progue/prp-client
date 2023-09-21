@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Group,
-  Loader,
-  TextInput,
-  useMantineTheme,
-} from "@mantine/core";
+import { Box, Button, Group, Loader, TextInput, useMantineTheme } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
@@ -18,7 +11,7 @@ import useIsEditing from "../../../../hooks/useIsEditing";
 import { RootState } from "../../../../redux/store";
 
 export default function Form(): JSX.Element {
-  const [ cookies, _ ] = useCookies([ "token" ]);
+  const [cookies, _] = useCookies(["token"]);
   const theme = useMantineTheme();
   const { id } = useParams();
   const isEditing = useIsEditing();
@@ -58,7 +51,7 @@ export default function Form(): JSX.Element {
         subCategory: "Loading...",
       });
     }
-  }, [ status ]);
+  }, [status]);
 
   const handleSubmit = async (values: typeof form.values) => {
     if (isEditing) {
@@ -107,11 +100,7 @@ export default function Form(): JSX.Element {
 
         <Group position="left" mt="md">
           <Button type="submit">
-            {newReview.isLoading ? (
-              <Loader color="white" size="sm" />
-            ) : (
-              <span>{isEditing ? "Update" : "Create"}</span>
-            )}
+            {newReview.isLoading ? <Loader color="white" size="sm" /> : <span>{isEditing ? "Update" : "Create"}</span>}
           </Button>
         </Group>
       </form>

@@ -5,15 +5,7 @@ import { Check } from "tabler-icons-react";
 import IReview from "../interfaces/review";
 import api from "../utils/api";
 
-async function createReview({
-  jwt,
-  reviewData,
-  id = null,
-}: {
-  jwt: string;
-  reviewData: IReview;
-  id?: string | null;
-}) {
+async function createReview({ jwt, reviewData, id = null }: { jwt: string; reviewData: IReview; id?: string | null }) {
   const patchURL = "/" + id;
   const { data } = await api({
     method: id ? "patch" : "post",

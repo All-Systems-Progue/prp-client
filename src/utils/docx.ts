@@ -24,4 +24,4 @@ const renderHTML = (str: string): HTMLElement => {
   return doc.body;
 };
 
-export { renderHTML,saveDocxFile };
+export { renderHTML, saveDocxFile };

@@ -7,11 +7,7 @@ import userIsOnline from "../../hooks/useUserOnline";
 import Header from "../Header";
 import Navbar from "../Navbar";
 
-export default function Page({
-  children,
-}: {
-  children: React.ReactNode;
-}): JSX.Element {
+export default function Page({ children }: { children: React.ReactNode }): JSX.Element {
   const theme = useMantineTheme();
   userIsOnline();
 
@@ -21,10 +17,7 @@ export default function Page({
         main: {
           overflowX: "hidden",
           overflowY: "auto",
-          background:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[8]
-            : theme.colors.gray[0],
+          background: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0],
         },
       }}
       navbarOffsetBreakpoint="sm"

@@ -9,27 +9,16 @@ import ReviewCard from "../../../components/ReviewCard";
 import useInfiniteSearch from "../../../hooks/useInfiniteSearch";
 import Analytics from "./Analytics";
 
-export default function Results({
-  searchTerm,
-}: {
-  searchTerm: string;
-}): JSX.Element {
+export default function Results({ searchTerm }: { searchTerm: string }): JSX.Element {
   const { ref, inView } = useInView();
 
-  const {
-    data,
-    status,
-    isFetching,
-    hasNextPage,
-    fetchNextPage,
-    isFetchingNextPage,
-  } = useInfiniteSearch(searchTerm);
+  const { data, status, isFetching, hasNextPage, fetchNextPage, isFetchingNextPage } = useInfiniteSearch(searchTerm);
 
   useEffect(() => {
     if (inView) {
       fetchNextPage();
     }
-  }, [ inView, fetchNextPage ]);
+  }, [inView, fetchNextPage]);
 
   return (
     <React.Fragment>
@@ -60,17 +49,9 @@ export default function Results({
           </Box>
 
           <Center ref={ref}>
-            {isFetchingNextPage ? (
-              <Loader size="lg" />
-            ) : hasNextPage ? (
-              <Loader size="lg" />
-            ) : (
-              "No more results..."
-            )}
+            {isFetchingNextPage ? <Loader size="lg" /> : hasNextPage ? <Loader size="lg" /> : "No more results..."}
             <Box>
-              <Title order={6}>
-                {isFetching && !isFetchingNextPage ? "Checking cache..." : null}
-              </Title>
+              <Title order={6}>{isFetching && !isFetchingNextPage ? "Checking cache..." : null}</Title>
             </Box>
           </Center>
         </>

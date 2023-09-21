@@ -11,7 +11,7 @@ import styles from "./Login.module.css";
 
 export default function Login(): JSX.Element {
   const navigate = useNavigate();
-  const [ cookies, _ ] = useCookies([ "token" ]);
+  const [cookies, _] = useCookies(["token"]);
 
   useEffect(() => {
     if (cookies.token) {
@@ -26,13 +26,7 @@ export default function Login(): JSX.Element {
         <LoginForm />
       </Grid.Col>
       <Grid.Col span={8}>
-        <Image
-          mt="md"
-          mx="auto"
-          className={styles.splash_image}
-          src={TeamCollabArt}
-          alt="Stock image"
-        />
+        <Image mt="md" mx="auto" className={styles.splash_image} src={TeamCollabArt} alt="Stock image" />
       </Grid.Col>
     </Grid>
   );
@@ -43,10 +37,7 @@ export default function Login(): JSX.Element {
         main: {
           overflowX: "hidden",
           overflowY: "auto",
-          background:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[8]
-              : theme.colors.gray[0],
+          background: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0],
         },
       }}
       navbarOffsetBreakpoint="sm"
