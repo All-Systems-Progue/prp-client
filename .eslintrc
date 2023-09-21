@@ -6,6 +6,10 @@
       "version": "detect"
     }
   },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react", "react-hooks", "simple-import-sort", "unused-imports"],
   "extends": [
@@ -14,7 +18,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime"
+    "plugin:react/jsx-runtime",
+    "plugin:prettier/recommended"
   ],
   "ignorePatterns": ["node_modules", "build", "dist", "public"],
   "rules": {
@@ -22,10 +27,17 @@
     "semi": ["error", "always"],
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-var-requires": "error",
-    "object-curly-spacing": ["error", "always", { "arraysInObjects": true }],
-    "array-bracket-spacing": ["error", "always"],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "unused-imports/no-unused-imports": "error"
+    "unused-imports/no-unused-imports": "error",
+    "prettier/prettier": [
+        "error",
+        {
+          "tabWidth": 2,
+          "bracketSpacing": true,
+          "eslintIntegration": true,
+          "printWidth": 120
+        }
+      ]
   }
 }

@@ -1,20 +1,22 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { fileURLToPath, URL } from "node:url";
+
 import svgr from "@honkhonk/vite-plugin-svgr";
-import { fileURLToPath, URL } from 'node:url';
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [ svgr(), react() ],
+  plugins: [svgr(), react()],
   resolve: {
     alias: {
-      "@src": fileURLToPath(new URL('./src', import.meta.url)),
-      "@utils": fileURLToPath(new URL('./src/utils', import.meta.url)),
-      "@components": fileURLToPath(new URL('./src/components', import.meta.url)),
-      "@views": fileURLToPath(new URL('./src/views', import.meta.url))
-    }
+      "@src": fileURLToPath(new URL("./src", import.meta.url)),
+      "@utils": fileURLToPath(new URL("./src/utils", import.meta.url)),
+      "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
+      "@views": fileURLToPath(new URL("./src/views", import.meta.url)),
+      "@redux": fileURLToPath(new URL("./src/redux", import.meta.url)),
+    },
   },
   server: {
-    port: 3000
+    port: 3000,
   },
 });
