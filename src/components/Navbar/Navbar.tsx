@@ -14,7 +14,7 @@ import {
   UserPlus,
 } from "tabler-icons-react";
 
-import UserEditPopover from "./UserEditPopover";
+import { UserEditPopover } from "./UserEditPopover";
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef("icon");
@@ -93,7 +93,7 @@ type NavItem = {
   icon: React.FC<IconProps>;
 };
 
-export default function Navbar(): JSX.Element {
+export const Navbar = (): JSX.Element => {
   const { classes, cx } = useStyles();
   const [section, setSection] = useState("review");
 
@@ -137,4 +137,4 @@ export default function Navbar(): JSX.Element {
       </MantineNavbar.Section>
     </MantineNavbar>
   );
-}
+};

@@ -1,15 +1,15 @@
+import { Header } from "@components/Header";
 import { AppShell, useMantineTheme } from "@mantine/core";
+import { useUserOnline } from "@users/hooks";
 import React from "react";
 
 // import Sidebar from "../Sidebar";
 // import Footer from "../Footer";
-import userIsOnline from "../../hooks/useUserOnline";
-import Header from "../Header";
-import Navbar from "../Navbar";
+import { Navbar } from "../Navbar";
 
-export default function Page({ children }: { children: React.ReactNode }): JSX.Element {
+export const Page = ({ children }: { children: React.ReactNode }): JSX.Element => {
   const theme = useMantineTheme();
-  userIsOnline();
+  useUserOnline();
 
   return (
     <AppShell
@@ -31,4 +31,4 @@ export default function Page({ children }: { children: React.ReactNode }): JSX.E
       {children}
     </AppShell>
   );
-}
+};

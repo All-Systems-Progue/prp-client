@@ -2,7 +2,7 @@ import { Button, useMantineTheme } from "@mantine/core";
 import { openSpotlight } from "@mantine/spotlight";
 import { Search } from "tabler-icons-react";
 
-export default function SpotlightControl(): JSX.Element {
+export const SpotlightControl = (): JSX.Element => {
   const theme = useMantineTheme();
   return (
     <Button
@@ -18,4 +18,4 @@ export default function SpotlightControl(): JSX.Element {
       Search...
     </Button>
   );
-}
+};

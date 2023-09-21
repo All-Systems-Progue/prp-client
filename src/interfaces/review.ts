@@ -1,4 +1,4 @@
-interface IReview {
+export interface IReview {
   _id?: string;
   entityType: string;
   category: string;
@@ -8,5 +8,3 @@ interface IReview {
   createdAt?: string;
   creator?: string;
 }
-
-export default IReview;

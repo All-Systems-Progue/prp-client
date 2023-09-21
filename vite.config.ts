@@ -14,6 +14,8 @@ export default defineConfig({
       "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
       "@views": fileURLToPath(new URL("./src/views", import.meta.url)),
       "@redux": fileURLToPath(new URL("./src/redux", import.meta.url)),
+      "@users": fileURLToPath(new URL("./src/users", import.meta.url)),
+      "@reviews": fileURLToPath(new URL("./src/reviews", import.meta.url)),
     },
   },
   server: {

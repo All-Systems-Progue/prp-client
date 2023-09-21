@@ -1,37 +1,31 @@
-import Spotlight from "@components/Spotlight";
-import NotFoundPage from "@views/404/NotFound";
-import ReviewCreate from "@views/Review/Create";
-import ReviewEdit from "@views/Review/Edit";
-import ReviewMerge from "@views/Review/Merge";
-import ReviewSearch from "@views/Review/Search";
-import UserCreate from "@views/User/Create";
-import UserLogin from "@views/User/Login";
+import { Spotlight } from "@components/Spotlight";
+import { NotFoundPage } from "@views/404";
+import { CreateReview, EditReview, MergeReviews, SearchReviews } from "@views/reviews";
+import { CreateUser, UserLogin } from "@views/users";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+export const App = () => {
   return (
     <Spotlight>
       <Router>
         <Routes>
           <Route path="/" element={<UserLogin />} />
           <Route path="review">
-            <Route path="create" element={<ReviewCreate />} />
+            <Route path="create" element={<CreateReview />} />
             <Route path="edit">
-              <Route index element={<ReviewEdit />} />
-              <Route path=":id" element={<ReviewCreate />} />
+              <Route index element={<EditReview />} />
+              <Route path=":id" element={<CreateReview />} />
             </Route>
-            <Route path="search" element={<ReviewSearch />} />
-            <Route path="merge" element={<ReviewMerge />} />
+            <Route path="search" element={<SearchReviews />} />
+            <Route path="merge" element={<MergeReviews />} />
           </Route>
           <Route path="user">
             <Route path="login" element={<UserLogin />} />
-            <Route path="create" element={<UserCreate />} />
+            <Route path="create" element={<CreateUser />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
     </Spotlight>
   );
-}
-
-export default App;
+};

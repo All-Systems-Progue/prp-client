@@ -25,7 +25,7 @@ export const editorSlice = createSlice({
 
 export const { refreshEditor } = editorSlice.actions;
 
-export const selectEditorContents = (state: AppState) => state.editor.editorContents;
+export const selectEditorContent = (state: AppState) => state.editor.editorContents;
 
 export type AppDispatch = Dispatch & ThunkDispatch<AppState, null, AnyAction>;
 export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;

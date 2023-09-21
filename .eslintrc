@@ -11,7 +11,7 @@
     "es6": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "simple-import-sort", "unused-imports"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "simple-import-sort", "unused-imports", "import"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -25,11 +25,14 @@
   "rules": {
     "no-console": "error", 
     "semi": ["error", "always"],
+    "prefer-arrow-callback": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-var-requires": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "unused-imports/no-unused-imports": "error",
+    "import/no-duplicates": "error",
+    "import/no-default-export": "error",
     "prettier/prettier": [
         "error",
         {

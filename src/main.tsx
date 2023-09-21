@@ -9,7 +9,7 @@ import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from "rea
 import { Provider } from "react-redux";
 import { X } from "tabler-icons-react";
 
-import App from "./App";
+import { App } from "./App";
 import { store } from "./redux/store";
 // import { ReactQueryDevtools } from "react-query/devtools";
 import { camel2Title } from "./utils/error";
@@ -22,20 +22,20 @@ import { camel2Title } from "./utils/error";
  */
 const queryClient = new QueryClient({
   mutationCache: new MutationCache({
-    onError: (error: any) =>
+    onError: (error: unknown) =>
       showNotification({
         title: "Error",
-        message: error.message,
+        message: error instanceof Error ? error.message : (error as string),
         color: "red",
         radius: "lg",
         icon: <X />,
       }),
   }),
   queryCache: new QueryCache({
-    onError: (error: any, query: any) =>
+    onError: (error: unknown, query: any) =>
       showNotification({
         title: "Error",
-        message: camel2Title(query.queryKey[0]) + " " + error,
+        message: camel2Title(query.queryKey[0]) + " " + (error instanceof Error ? error.message : (error as string)),
         color: "red",
         radius: "lg",
         icon: <X />,

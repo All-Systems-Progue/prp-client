@@ -1,1 +1,1 @@
-export { default } from "./SpotlightControl";
+export * from "./SpotlightControl";

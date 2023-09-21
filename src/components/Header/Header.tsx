@@ -1,3 +1,5 @@
+import { Badge } from "@components/Badge";
+import { SpotlightControl } from "@components/Spotlight/Control";
 import {
   Badge as MantineBadge,
   Burger,
@@ -12,10 +14,7 @@ import { Link } from "react-router-dom";
 
 import ProgueLogo from "/logo/progue-logo.svg";
 
-import Badge from "../Badge";
-import SpotlightControl from "../Spotlight/Control";
-
-export default function Header({ isLoginPage = false }: { isLoginPage?: boolean }): JSX.Element {
+export const Header = ({ isLoginPage = false }: { isLoginPage?: boolean }): JSX.Element => {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
 
@@ -70,4 +69,4 @@ export default function Header({ isLoginPage = false }: { isLoginPage?: boolean 
       {isLoginPage ? headerLogo : normalHeaderContent}
     </MantineHeader>
   );
-}
+};

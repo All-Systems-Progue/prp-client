@@ -83,7 +83,7 @@ function User({ name, email, className }: UserProps) {
   );
 }
 
-export default function UserPopover(): JSX.Element {
+export const UserEditPopover = (): JSX.Element => {
   const [values, setValues] = useState({
     name: "Bob Handsome",
     email: "bob@handsome.inc",
@@ -120,4 +120,4 @@ export default function UserPopover(): JSX.Element {
       </Popover>
     </Group>
   );
-}
+};

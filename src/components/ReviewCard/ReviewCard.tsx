@@ -4,9 +4,9 @@ import { Hit } from "meilisearch";
 import { Link } from "react-router-dom";
 import { Check, Maximize, TrashX } from "tabler-icons-react";
 
-import Popover from "../Popover";
+import { Popover } from "../Popover";
 
-export default function ReviewCard({ review, idx }: { review: Hit; idx: string }): JSX.Element {
+export const ReviewCard = ({ review, idx }: { review: Hit; idx: string }): JSX.Element => {
   return (
     <Paper key={idx} shadow="lg" mb="lg" p="md">
       <Grid>
@@ -69,4 +69,4 @@ export default function ReviewCard({ review, idx }: { review: Hit; idx: string }
       </Grid>
     </Paper>
   );
-}
+};

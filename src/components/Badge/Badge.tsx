@@ -1,12 +1,9 @@
 import { Avatar, Group, Menu, Text, UnstyledButton } from "@mantine/core";
+import { useFetchProfile, useLogout } from "@users/hooks";
 import { forwardRef, useState } from "react";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronRight, Cookie, Logout } from "tabler-icons-react";
-
-import useFetchProfile from "../../hooks/useFetchProfile";
-import useLogout from "../../hooks/useLogout";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   name: string;
@@ -49,7 +46,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(({ name, icon,
 ));
 UserButton.displayName = "UserButton";
 
-export default function Badge(): JSX.Element {
+export const Badge = (): JSX.Element => {
   const navigate = useNavigate();
   const [opened, setOpened] = useState(false);
   const [cookies, _, removeCookie] = useCookies(["token"]);
@@ -104,4 +101,4 @@ export default function Badge(): JSX.Element {
       </Menu>
     </Group>
   );
-}
+};
