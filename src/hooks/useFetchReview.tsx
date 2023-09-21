@@ -1,14 +1,13 @@
 import { showNotification } from "@mantine/notifications";
+import { refreshEditor, useAppDispatch } from "@redux/editorSlice";
 import { QueryFunctionContext, useQuery } from "react-query";
-import { useDispatch } from "react-redux";
 import { InfoCircle } from "tabler-icons-react";
 
 import IReview from "../interfaces/review";
-import { refreshEditor } from "../redux/actions";
 import api from "../utils/api";
 
 async function fetchReview({ queryKey }: QueryFunctionContext) {
-  const [ _, jwt, id ] = queryKey;
+  const [_, jwt, id] = queryKey;
   const { data } = await api({
     method: "get",
     url: `/review/${id}`,
@@ -18,9 +17,9 @@ async function fetchReview({ queryKey }: QueryFunctionContext) {
 }
 
 export default (jwt: string, id: string | undefined) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  return useQuery([ "fetchReview", jwt, id ], fetchReview, {
+  return useQuery(["fetchReview", jwt, id], fetchReview, {
     onSuccess: (data: IReview) => {
       showNotification({
         title: "Editing Mode Enabled",
