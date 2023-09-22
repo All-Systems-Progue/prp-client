@@ -15,8 +15,8 @@ export const Editor = () => {
       editor={ClassicEditor}
       data={id ? editorContent : ""}
       onChange={(_: any, editor: any) => {
-        const editor_content = editor.getData();
-        dispatch(refreshEditor(sanitizeHTML(editor_content)));
+        const editorContent = editor.getData();
+        dispatch(refreshEditor(sanitizeHTML(editorContent)));
       }}
       onReady={(editor: any) => {
         editor.editing.view.change((writer: any) => {

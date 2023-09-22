@@ -17,6 +17,7 @@ export default defineConfig({
       "@redux": fileURLToPath(new URL("./src/redux", import.meta.url)),
       "@users": fileURLToPath(new URL("./src/users", import.meta.url)),
       "@reviews": fileURLToPath(new URL("./src/reviews", import.meta.url)),
+      "@domain": fileURLToPath(new URL("./src/domain", import.meta.url)),
     },
   },
   server: {

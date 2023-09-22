@@ -1,32 +1,21 @@
+import { reviewPaths, usePathToSpotlight, userPaths } from "@domain/paths";
 import { rem } from "@mantine/core";
-import { Spotlight as MantineSpotlight, SpotlightActionData } from "@mantine/spotlight";
-import { IconDatabase, IconFileText, IconHome, IconSearch } from "@tabler/icons-react";
-
-const actions: SpotlightActionData[] = [
-  {
-    id: "home",
-    title: "Home",
-    description: "Get to home page",
-    onClick: () => "Home",
-    leftSection: <IconHome size={18} />,
-  },
-  {
-    id: "database",
-    title: "Database",
-    description: "Get full information about current system status",
-    onClick: () => "Database",
-    leftSection: <IconDatabase size={18} />,
-  },
-  {
-    id: "documentation",
-    title: "Documentation",
-    description: "Visit documentation to lean more about all features",
-    onClick: () => "Documentation",
-    leftSection: <IconFileText size={18} />,
-  },
-];
+import { Spotlight as MantineSpotlight, SpotlightActionData, SpotlightActionGroupData } from "@mantine/spotlight";
+import { IconSearch } from "@tabler/icons-react";
 
 export const Spotlight = (): JSX.Element => {
+  const pathToSpotlight = usePathToSpotlight();
+  const actions: (SpotlightActionGroupData | SpotlightActionData)[] = [
+    {
+      group: "Review Points",
+      actions: reviewPaths.map(pathToSpotlight),
+    },
+    {
+      group: "User Centre",
+      actions: userPaths.map(pathToSpotlight),
+    },
+  ];
+
   return (
     <MantineSpotlight
       actions={actions}

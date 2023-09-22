@@ -15,7 +15,7 @@ export const EditReview = (): JSX.Element => {
           <Grid.Col span={6}>
             <Box>
               <Title my="sm">
-                <IconEdit size={30} style={{ paddingRight: theme.spacing.xs }} />
+                <IconEdit size={50} style={{ paddingTop: theme.spacing.sm, paddingRight: theme.spacing.sm }} />
                 Edit Review Points
               </Title>
               <Text>
@@ -32,7 +32,7 @@ export const EditReview = (): JSX.Element => {
                     field in the review point will be indexed in the search
                   </List.Item>
                   <List.Item>
-                    Click on the (<IconMaximize size={10} />) edit button to enter the editor view
+                    Click on the <IconMaximize size={16} /> edit button to enter the editor view
                   </List.Item>
                 </List>
               </Text>
