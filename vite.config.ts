@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import { fileURLToPath, URL } from "node:url";
 
 import svgr from "@honkhonk/vite-plugin-svgr";
@@ -20,5 +21,8 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+  },
+  css: {
+    modules: { localsConvention: "camelCaseOnly" },
   },
 });

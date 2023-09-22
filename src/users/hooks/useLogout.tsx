@@ -1,7 +1,7 @@
 import { showNotification } from "@mantine/notifications";
+import { IconCheck } from "@tabler/icons-react";
 import { api } from "@utils/api";
 import { useMutation } from "react-query";
-import { Check } from "tabler-icons-react";
 
 async function logoutUser(jwt: string) {
   const { data } = await api({
@@ -20,6 +20,6 @@ export const useLogout = () =>
         message: "Logged out",
         color: "green",
         radius: "lg",
-        icon: <Check />,
+        icon: <IconCheck />,
       }),
   });

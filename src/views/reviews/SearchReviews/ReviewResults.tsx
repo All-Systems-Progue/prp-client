@@ -1,13 +1,13 @@
 import "./Search.module.css";
 
-import { ReviewCard } from "@components/ReviewCard";
+import { ReviewCard } from "@components/molecules";
 import { Box, Center, Loader, Title } from "@mantine/core";
 import { useInfiniteSearch } from "@reviews/hooks";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { v4 as uuidv4 } from "uuid";
 
-import { Analytics } from "./Analytics";
+import { ReviewAnalytics } from "./ReviewAnalytics";
 
 export const ReviewResults = ({ searchTerm }: { searchTerm: string }): JSX.Element => {
   const { ref, inView } = useInView();
@@ -22,7 +22,7 @@ export const ReviewResults = ({ searchTerm }: { searchTerm: string }): JSX.Eleme
 
   return (
     <React.Fragment>
-      <Analytics
+      <ReviewAnalytics
         searchTime={data?.pages[0].processingTimeMs ?? 0}
         totalMatches={data?.pages[0].estimatedTotalHits ?? 0}
       />

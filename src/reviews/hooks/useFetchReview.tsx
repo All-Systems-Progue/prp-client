@@ -1,9 +1,9 @@
 import { showNotification } from "@mantine/notifications";
 import { refreshEditor, useAppDispatch } from "@redux/editorSlice";
 import { IReview } from "@src/interfaces";
+import { IconInfoCircle } from "@tabler/icons-react";
 import { api } from "@utils/api";
 import { QueryFunctionContext, useQuery } from "react-query";
-import { InfoCircle } from "tabler-icons-react";
 
 async function fetchReview({ queryKey }: QueryFunctionContext) {
   const [_, jwt, id] = queryKey;
@@ -25,7 +25,7 @@ export const useFetchReview = (jwt: string, id: string | undefined) => {
         message: "",
         color: "blue",
         radius: "lg",
-        icon: <InfoCircle />,
+        icon: <IconInfoCircle />,
       });
       dispatch(refreshEditor(data.content));
     },

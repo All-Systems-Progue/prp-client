@@ -1,8 +1,8 @@
 import { showNotification } from "@mantine/notifications";
 import { IReview } from "@src/interfaces";
+import { IconCheck } from "@tabler/icons-react";
 import { api } from "@utils/api";
 import { useMutation } from "react-query";
-import { Check } from "tabler-icons-react";
 
 async function createReview({ jwt, reviewData, id = null }: { jwt: string; reviewData: IReview; id?: string | null }) {
   const patchURL = "/" + id;
@@ -23,6 +23,6 @@ export const useCreateReview = () =>
         message: "Review Point added",
         color: "green",
         radius: "lg",
-        icon: <Check />,
+        icon: <IconCheck />,
       }),
   });

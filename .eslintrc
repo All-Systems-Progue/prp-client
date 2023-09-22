@@ -26,6 +26,7 @@
     "no-console": "error", 
     "semi": ["error", "always"],
     "prefer-arrow-callback": "error",
+    "camelcase": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-var-requires": "error",
     "simple-import-sort/imports": "error",

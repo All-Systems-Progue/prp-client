@@ -1,18 +1,20 @@
+import "@mantine/core/styles.css";
 import "./index.css";
 
 import { MantineProvider } from "@mantine/core";
-import { NotificationsProvider, showNotification } from "@mantine/notifications";
+import { Notifications, showNotification } from "@mantine/notifications";
+import { store } from "@redux/store";
+import { IconX } from "@tabler/icons-react";
+// import { ReactQueryDevtools } from "react-query/devtools";
+import { camel2Title } from "@utils/error";
+import { theme } from "@utils/theme";
 import React from "react";
 import { CookiesProvider } from "react-cookie";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
-import { X } from "tabler-icons-react";
 
 import { App } from "./App";
-import { store } from "./redux/store";
-// import { ReactQueryDevtools } from "react-query/devtools";
-import { camel2Title } from "./utils/error";
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
@@ -28,7 +30,7 @@ const queryClient = new QueryClient({
         message: error instanceof Error ? error.message : (error as string),
         color: "red",
         radius: "lg",
-        icon: <X />,
+        icon: <IconX />,
       }),
   }),
   queryCache: new QueryCache({
@@ -38,35 +40,26 @@ const queryClient = new QueryClient({
         message: camel2Title(query.queryKey[0]) + " " + (error instanceof Error ? error.message : (error as string)),
         color: "red",
         radius: "lg",
-        icon: <X />,
+        icon: <IconX />,
       }),
   }),
 });
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container!);
+
+root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <CookiesProvider>
         <Provider store={store}>
-          <MantineProvider
-            theme={{
-              spacing: { xs: 15, sm: 20, md: 25, lg: 30, xl: 40 },
-              loader: "dots",
-              colorScheme: "light",
-              colors: {
-                brand: ["#048E80"],
-              },
-              // primaryColor: "brand",
-            }}
-          >
-            <NotificationsProvider autoClose={3000} limit={5}>
-              <App />
-            </NotificationsProvider>
+          <MantineProvider theme={theme} defaultColorScheme="light">
+            <Notifications autoClose={3000} limit={5} zIndex={10000} />
+            <App />
           </MantineProvider>
         </Provider>
       </CookiesProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById("root"),
 );

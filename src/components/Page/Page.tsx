@@ -1,34 +1,46 @@
-import { Header } from "@components/Header";
-import { AppShell, useMantineTheme } from "@mantine/core";
+import { Header, Spotlight, UserBadge } from "@components/molecules";
+import { HeaderLogo } from "@components/molecules/Header/HeaderLogo";
+import { SpotlightControl } from "@components/molecules/Spotlight/Control";
+import { AppShell, Badge, Group } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { IconMenu2 } from "@tabler/icons-react";
 import { useUserOnline } from "@users/hooks";
 import React from "react";
 
-// import Sidebar from "../Sidebar";
-// import Footer from "../Footer";
-import { Navbar } from "../Navbar";
+import { Navbar } from "../molecules/Navbar";
+import classes from "./Page.module.css";
 
 export const Page = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const theme = useMantineTheme();
   useUserOnline();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
+
+  const MainPageHeader = (
+    <>
+      <Group>
+        <Group h="100%" px="md">
+          <IconMenu2 onClick={toggleDesktop} cursor="pointer" color="white" />
+        </Group>
+
+        <Group>
+          <HeaderLogo />
+          <Badge className={classes.versionBadge}>ALPHA</Badge>
+        </Group>
+      </Group>
+      <SpotlightControl />
+      <Spotlight />
+      <UserBadge />
+    </>
+  );
 
   return (
     <AppShell
-      styles={{
-        main: {
-          overflowX: "hidden",
-          overflowY: "auto",
-          background: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0],
-        },
-      }}
-      navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="sm"
-      fixed
-      header={<Header />}
-      navbar={<Navbar />}
-      // aside={<Sidebar />}
-      // footer={<Footer />}
+      header={{ height: 60 }}
+      navbar={{ width: 260, breakpoint: "sm", collapsed: { desktop: !desktopOpened } }}
+      padding="md"
     >
-      {children}
+      <Header injectableNode={MainPageHeader} />
+      <Navbar />
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
 };

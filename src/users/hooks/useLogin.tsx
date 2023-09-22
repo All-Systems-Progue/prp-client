@@ -1,9 +1,9 @@
 import { showNotification } from "@mantine/notifications";
+import { IconCheck } from "@tabler/icons-react";
 import { api } from "@utils/api";
 import { useCookies } from "react-cookie";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { Check } from "tabler-icons-react";
 
 import { IProfile } from "../../interfaces/user";
 
@@ -29,7 +29,7 @@ export const useLogin = () => {
         message: "Logged in",
         color: "green",
         radius: "lg",
-        icon: <Check />,
+        icon: <IconCheck />,
       });
     },
   });
