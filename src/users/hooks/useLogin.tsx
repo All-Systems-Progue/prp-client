@@ -1,7 +1,7 @@
 import { showNotification } from "@mantine/notifications";
 import { IconCheck } from "@tabler/icons-react";
 import { api } from "@utils/api";
-import { useCookies } from "react-cookie";
+import { CookieJar } from "@utils/cookies";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 
@@ -17,12 +17,13 @@ async function loginUser({ email, password }: IProfile) {
 }
 
 export const useLogin = () => {
-  const [_, setCookie] = useCookies(["token"]);
+  // const [_, setCookie] = useCookies(["token"]);
   const navigate = useNavigate();
+  const jar = new CookieJar();
 
   return useMutation("loginUser", loginUser, {
     onSuccess: ({ token }: { token: string }) => {
-      setCookie("token", token, { maxAge: 60 * 60 * 24 * 14 });
+      jar.set("token", token, { maxAge: 60 * 60 * 24 * 14 });
       navigate("/review/create");
       showNotification({
         title: "Success",
