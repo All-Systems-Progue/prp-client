@@ -55,8 +55,8 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <MantineProvider theme={theme} defaultColorScheme="light">
-          <Notifications autoClose={3000} limit={5} zIndex={10000} />
           <CookiesProvider value={new CookieJar()}>
+            <Notifications autoClose={3000} limit={5} zIndex={10000} />
             <App />
           </CookiesProvider>
         </MantineProvider>

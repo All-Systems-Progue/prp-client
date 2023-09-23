@@ -1,4 +1,5 @@
-import MeiliSearch from "meilisearch";
+import { IReview } from "@src/interfaces";
+import MeiliSearch, { SearchParams, SearchResponse, Settings } from "meilisearch";
 import { useInfiniteQuery } from "react-query";
 
 const client = new MeiliSearch({
@@ -8,9 +9,11 @@ const client = new MeiliSearch({
 
 const attributes = ["_id", "entityType", "category", "subCategory", "content"];
 
-const settings = {
+const settings: Settings = {
   searchableAttributes: attributes,
+  filterableAttributes: [...attributes, "isFlagged"], // needed for faceted search
   displayedAttributes: [...attributes, "isFlagged", "createdAt"],
+  rankingRules: ["words", "proximity", "attribute", "typo", "sort", "exactness"],
 };
 
 /**
@@ -22,12 +25,19 @@ const settings = {
  * @param { pageParam } - contains the current page offset
  * @returns
  */
-async function meiliFetch({ queryKey, pageParam }: { queryKey: string[]; pageParam?: number }) {
+async function meiliFetch({
+  queryKey,
+  pageParam,
+}: {
+  queryKey: string[];
+  pageParam?: number;
+}): Promise<SearchResponse<IReview, SearchParams>> {
   const index = await client.getIndex("reviews");
   await index.updateSettings(settings);
   return await index.search(queryKey[1], {
     attributesToHighlight: ["*"],
     offset: pageParam,
+    facets: ["entityType", "category", "subCategory", "isFlagged"],
     limit: 10,
   });
 }

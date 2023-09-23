@@ -37,11 +37,11 @@ export function Dropzone() {
           <Text ta="center" fw={700} fz="lg" mt="xl">
             <MantineDropzone.Accept>Drop files here</MantineDropzone.Accept>
             <MantineDropzone.Reject>Pdf file less than 30mb</MantineDropzone.Reject>
-            <MantineDropzone.Idle>Upload resume</MantineDropzone.Idle>
+            <MantineDropzone.Idle>Upload word file</MantineDropzone.Idle>
           </Text>
           <Text ta="center" fz="sm" mt="xs" c="dimmed">
-            Drag&apos;n&apos;drop files here to upload. We can accept only <i>.pdf</i> files that are less than 30mb in
-            size.
+            Drag&apos;n&apos;drop files here to upload. We can accept only <i>.pdf</i> and <i>.docx</i> files that are
+            less than 30mb in size.
           </Text>
         </div>
       </MantineDropzone>

@@ -1,6 +1,6 @@
 import { ProtectedRoute } from "@domain/ProtectedRoute";
 import { NotFoundPage } from "@views/404";
-import { CreateReview, EditReview, MergeReviews, SearchReviews } from "@views/reviews";
+import { CreateReview, EditReview, ExportReviews, MergeReviews, SearchReviews } from "@views/reviews";
 import { CreateUser, UserLogin } from "@views/users";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -54,6 +54,15 @@ export const App = () => {
             element={
               <ProtectedRoute>
                 <SearchReviews />
+              </ProtectedRoute>
+            }
+          />
+          {/* Export Reviews */}
+          <Route
+            path="export"
+            element={
+              <ProtectedRoute>
+                <ExportReviews />
               </ProtectedRoute>
             }
           />

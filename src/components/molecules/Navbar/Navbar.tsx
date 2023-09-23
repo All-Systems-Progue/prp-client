@@ -1,13 +1,28 @@
 import { reviewPaths } from "@domain/paths";
-import { AppShell, Stack } from "@mantine/core";
+import { AppShell, Badge, Stack } from "@mantine/core";
+import { useAppSelector } from "@redux/hooks";
+import { selectReviewsForExport } from "@reviews/reviewSlice";
+import { theme } from "@utils/theme";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./Navbar.module.css";
 import { UserEditPopover } from "./UserEditPopover";
 
+const Counter = <T,>({ arr }: { arr: T[] | undefined }) => {
+  return (
+    arr?.length && (
+      <Badge ml={theme.spacing.sm} variant="dot">
+        {arr.length}
+      </Badge>
+    )
+  );
+};
+
 export function Navbar() {
   const [active, setActive] = useState<string | undefined>(undefined);
+
+  const selectedReviews = useAppSelector(selectReviewsForExport);
 
   const links = reviewPaths.map((item) => (
     <Link
@@ -17,8 +32,11 @@ export function Navbar() {
       to={item.link}
       onClick={() => setActive(item.label)}
     >
-      <item.icon className={classes.linkIcon} />
-      <span>{item.label}</span>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <item.icon className={classes.linkIcon} />
+        <span>{item.label}</span>
+      </div>
+      {item.id === "export" && <Counter arr={selectedReviews} />}
     </Link>
   ));
 

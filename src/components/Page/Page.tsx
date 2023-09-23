@@ -21,7 +21,9 @@ export const Page = ({ children }: { children: React.ReactNode }): JSX.Element =
 
         <Group>
           <HeaderLogo />
-          <Badge className={classes.versionBadge}>ALPHA</Badge>
+          <Badge variant="gradient" gradient={{ from: "violet", to: "pink", deg: 90 }} className={classes.versionBadge}>
+            ALPHA
+          </Badge>
         </Group>
       </Group>
       <SpotlightControl />

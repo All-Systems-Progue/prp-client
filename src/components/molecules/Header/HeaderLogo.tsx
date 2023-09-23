@@ -5,7 +5,7 @@ import ProgueLogo from "/logo/progue-logo.svg";
 
 export const HeaderLogo = (): JSX.Element => {
   return (
-    <Link to="/" style={{ margin: "auto" }}>
+    <Link to="/home" style={{ margin: "auto" }}>
       <Image m="auto" src={ProgueLogo} height={40} alt="Progue Logo" />
     </Link>
   );

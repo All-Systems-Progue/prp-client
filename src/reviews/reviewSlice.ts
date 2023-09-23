@@ -5,7 +5,7 @@ import { IReview } from "@src/interfaces";
 import { ReviewState } from "./reviews.types";
 
 const initialState = {
-  selectedReviews: undefined,
+  selectedReviews: [],
 } as ReviewState;
 
 export const reviewSlice = createSlice({
@@ -13,16 +13,22 @@ export const reviewSlice = createSlice({
   initialState,
   reducers: {
     selectReview: (state, action: PayloadAction<IReview>) => {
-      state.selectedReviews ??= [];
-      state.selectedReviews?.push(action.payload);
+      // state.selectedReviews ??= [];
+      state.selectedReviews.push(action.payload);
+    },
+    removeReview: (state, action: PayloadAction<IReview>) => {
+      state.selectedReviews?.splice(
+        state.selectedReviews.findIndex((review) => review._id === action.payload._id),
+        1,
+      );
     },
     selectReviews: (state, action: PayloadAction<IReview[]>) => {
-      state.selectedReviews ??= [];
+      // state.selectedReviews ??= [];
       state.selectedReviews = state.selectedReviews?.concat(action.payload);
     },
   },
 });
 
-export const getSelectedReviews = (state: RootState) => state.reviews.selectedReviews;
+export const { selectReview, selectReviews, removeReview } = reviewSlice.actions;
 
-export const { selectReview, selectReviews } = reviewSlice.actions;
+export const selectReviewsForExport = (state: RootState) => state.reviews.selectedReviews;

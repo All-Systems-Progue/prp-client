@@ -1,6 +1,6 @@
 import "./Search.module.css";
 
-import { ReviewCard } from "@components/molecules";
+import { ReviewCard, ReviewCardSkeleton } from "@components/molecules";
 import { Box, Center, Loader, Title } from "@mantine/core";
 import { useInfiniteSearch } from "@reviews/hooks";
 import React, { useEffect } from "react";
@@ -26,11 +26,7 @@ export const ReviewResults = ({ searchTerm }: { searchTerm: string }): JSX.Eleme
         searchTime={data?.pages[0].processingTimeMs ?? 0}
         totalMatches={data?.pages[0].estimatedTotalHits ?? 0}
       />
-      {status === "loading" && (
-        <Center>
-          <Loader size="lg" />
-        </Center>
-      )}
+      {status === "loading" && Array.from({ length: 10 }, (_, i) => <ReviewCardSkeleton key={i} />)}
       {status === "error" && (
         <Center>
           <Title order={6}>Error fetching data</Title>
@@ -42,7 +38,7 @@ export const ReviewResults = ({ searchTerm }: { searchTerm: string }): JSX.Eleme
             {data.pages.map((page) => (
               <React.Fragment key={uuidv4()}>
                 {page.hits.map((review) => (
-                  <ReviewCard key={uuidv4()} review={review} />
+                  <ReviewCard key={review._id} review={review} />
                 ))}
               </React.Fragment>
             ))}

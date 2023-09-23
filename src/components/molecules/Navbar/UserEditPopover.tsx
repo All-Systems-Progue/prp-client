@@ -88,6 +88,8 @@ export const UserEditPopover = (): JSX.Element => {
     name: "Bob Handsome",
     email: "bob@handsome.inc",
   });
+  // const { token } = useAuth();
+  // const { data, isSuccess } = useFetchProfile(token);
   const [opened, setOpened] = useState(false);
 
   return (
