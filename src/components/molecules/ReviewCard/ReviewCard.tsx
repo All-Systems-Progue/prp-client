@@ -1,4 +1,6 @@
 import { ActionIcon, Avatar, Badge, Box, Checkbox, Divider, Grid, Group, Paper, Title } from "@mantine/core";
+import { useAppDispatch } from "@redux/hooks";
+import { selectReview } from "@reviews/reviewSlice";
 import { IconAlertTriangle, IconMaximize, IconTrashX } from "@tabler/icons-react";
 import parse from "html-react-parser";
 import { Hit } from "meilisearch";
@@ -6,9 +8,13 @@ import { Link } from "react-router-dom";
 
 import { Popover } from "../../atoms/Popover";
 
-export const ReviewCard = ({ review, idx }: { review: Hit; idx: string }): JSX.Element => {
+type ReviewCardProps = {
+  review: Hit;
+};
+
+export const ReviewCard = ({ review }: ReviewCardProps): JSX.Element => {
   return (
-    <Paper key={idx} shadow="lg" mb="lg" p="md">
+    <Paper shadow="lg" mb="lg" p="md">
       <Grid>
         <Grid.Col span={4}>
           <Title mb="sm" order={1}>
@@ -68,12 +74,13 @@ export const ReviewCard = ({ review, idx }: { review: Hit; idx: string }): JSX.E
   );
 };
 
-function ExportOptions() {
+function ExportOptions({ review }: Partial<ReviewCardProps>) {
+  const dispatch = useAppDispatch();
   return (
     <Checkbox.Group label="Export" description="Select an export format">
       <Group mt="xs">
         <Checkbox value="word" label="Word" />
-        <Checkbox value="pdf" label="PDF" />
+        <Checkbox value="pdf" label="PDF" onChange={() => dispatch(selectReview(review?._formatted))} />
       </Group>
     </Checkbox.Group>
   );

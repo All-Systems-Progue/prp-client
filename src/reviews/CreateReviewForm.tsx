@@ -1,6 +1,7 @@
 import { Box, Button, Group, Loader, TextInput, useMantineTheme } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { selectEditorContent, useAppSelector } from "@redux/editorSlice";
+import { selectEditorContent } from "@redux/editorSlice";
+import { useAppSelector } from "@redux/hooks";
 import { useCreateReview, useFetchReview, useIsEditing } from "@reviews/hooks";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";

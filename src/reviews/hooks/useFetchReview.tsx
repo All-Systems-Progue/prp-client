@@ -1,5 +1,6 @@
 import { showNotification } from "@mantine/notifications";
-import { refreshEditor, useAppDispatch } from "@redux/editorSlice";
+import { refreshEditor } from "@redux/editorSlice";
+import { useAppDispatch } from "@redux/hooks";
 import { IReview } from "@src/interfaces";
 import { IconInfoCircle } from "@tabler/icons-react";
 import { api } from "@utils/api";

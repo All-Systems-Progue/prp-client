@@ -1,5 +1,4 @@
-import { AnyAction, createSlice, Dispatch, PayloadAction, ThunkDispatch } from "@reduxjs/toolkit";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type EditorState = {
   editorContents: string;
@@ -26,7 +25,3 @@ export const editorSlice = createSlice({
 export const { refreshEditor } = editorSlice.actions;
 
 export const selectEditorContent = (state: AppState) => state.editor.editorContents;
-
-export type AppDispatch = Dispatch & ThunkDispatch<AppState, null, AnyAction>;
-export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;
-export const useAppDispatch = () => useDispatch<AppDispatch>();

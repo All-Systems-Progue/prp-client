@@ -42,7 +42,7 @@ export const ReviewResults = ({ searchTerm }: { searchTerm: string }): JSX.Eleme
             {data.pages.map((page) => (
               <React.Fragment key={uuidv4()}>
                 {page.hits.map((review) => (
-                  <ReviewCard key={uuidv4()} idx={uuidv4()} review={review} />
+                  <ReviewCard key={uuidv4()} review={review} />
                 ))}
               </React.Fragment>
             ))}

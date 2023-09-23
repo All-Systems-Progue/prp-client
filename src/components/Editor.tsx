@@ -1,6 +1,7 @@
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import { refreshEditor, selectEditorContent, useAppDispatch, useAppSelector } from "@redux/editorSlice";
+import { refreshEditor, selectEditorContent } from "@redux/editorSlice";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { useParams } from "react-router-dom";
 import sanitizeHTML from "sanitize-html";
 
