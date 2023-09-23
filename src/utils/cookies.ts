@@ -119,7 +119,7 @@ export class CookieJar {
    * Cookies may not be available if the browser does not support them or if they are disabled.
    */
   @CookiesEnabled
-  public remnove(key: string): void {
+  public remove(key: string): void {
     const lastOptions = {
       expires: new Date(1970, 1, 1, 0, 0, 1),
       maxAge: 0,

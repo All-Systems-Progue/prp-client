@@ -2,15 +2,16 @@ import "@mantine/core/styles.css";
 import "@mantine/spotlight/styles.css";
 import "./index.css";
 
+import { CookiesProvider } from "@hooks/useCookies";
 import { MantineProvider } from "@mantine/core";
 import { Notifications, showNotification } from "@mantine/notifications";
 import { store } from "@redux/store";
 import { IconX } from "@tabler/icons-react";
+import { CookieJar } from "@utils/cookies";
 // import { ReactQueryDevtools } from "react-query/devtools";
 import { camel2Title } from "@utils/error";
 import { theme } from "@utils/theme";
 import React from "react";
-import { CookiesProvider } from "react-cookie";
 import { createRoot } from "react-dom/client";
 import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
@@ -52,14 +53,14 @@ const root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <CookiesProvider>
-        <Provider store={store}>
-          <MantineProvider theme={theme} defaultColorScheme="light">
-            <Notifications autoClose={3000} limit={5} zIndex={10000} />
+      <Provider store={store}>
+        <MantineProvider theme={theme} defaultColorScheme="light">
+          <Notifications autoClose={3000} limit={5} zIndex={10000} />
+          <CookiesProvider value={new CookieJar()}>
             <App />
-          </MantineProvider>
-        </Provider>
-      </CookiesProvider>
+          </CookiesProvider>
+        </MantineProvider>
+      </Provider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   </React.StrictMode>,

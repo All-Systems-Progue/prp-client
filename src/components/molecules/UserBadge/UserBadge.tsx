@@ -1,8 +1,8 @@
+import { useAuth } from "@hooks/useAuth";
 import { Avatar, Group, Menu, Text, UnstyledButton } from "@mantine/core";
 import { IconChevronRight, IconCookie, IconLogout, IconSettings, IconUserEdit } from "@tabler/icons-react";
 import { useFetchProfile, useLogout } from "@users/hooks";
 import { forwardRef, useState } from "react";
-import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<"button"> {
@@ -41,8 +41,8 @@ UserButton.displayName = "UserButton";
 export const UserBadge = (): JSX.Element => {
   const navigate = useNavigate();
   const [opened, setOpened] = useState(false);
-  const [cookies, _, removeCookie] = useCookies(["token"]);
-  const { data, isSuccess } = useFetchProfile(cookies.token);
+  const { token } = useAuth();
+  const { data, isSuccess } = useFetchProfile(token);
   const logout = useLogout();
 
   return (
@@ -85,11 +85,12 @@ export const UserBadge = (): JSX.Element => {
             component={Link}
             leftSection={<IconLogout size={20} />}
             to="/user/logout"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
-              logout.mutate(cookies.token);
-              removeCookie("token");
-              navigate("/");
+              if (token) {
+                await logout.mutateAsync(token);
+                navigate("/login", { replace: true });
+              }
             }}
           >
             Logout

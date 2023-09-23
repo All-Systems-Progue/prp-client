@@ -18,6 +18,7 @@ export default defineConfig({
       "@users": fileURLToPath(new URL("./src/users", import.meta.url)),
       "@reviews": fileURLToPath(new URL("./src/reviews", import.meta.url)),
       "@domain": fileURLToPath(new URL("./src/domain", import.meta.url)),
+      "@hooks": fileURLToPath(new URL("./src/hooks", import.meta.url)),
     },
   },
   server: {

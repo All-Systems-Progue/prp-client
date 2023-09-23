@@ -16,7 +16,7 @@ async function fetchReview({ queryKey }: QueryFunctionContext) {
   return data;
 }
 
-export const useFetchReview = (jwt: string, id: string | undefined) => {
+export const useFetchReview = (jwt: string | undefined, id: string | undefined) => {
   const dispatch = useAppDispatch();
 
   return useQuery(["fetchReview", jwt, id], fetchReview, {

@@ -23,7 +23,7 @@
   ],
   "ignorePatterns": ["node_modules", "build", "dist", "public"],
   "rules": {
-    "no-console": "error", 
+    "no-console": ["error", { "allow": [ "warn" ] }], 
     "semi": ["error", "always"],
     "prefer-arrow-callback": "error",
     "camelcase": "error",

@@ -11,7 +11,7 @@ async function fetchProfile({ queryKey }: QueryFunctionContext) {
   return data;
 }
 
-export const useFetchProfile = (token: string) =>
+export const useFetchProfile = (token: string | undefined) =>
   useQuery(["fetchProfile", token], fetchProfile, {
     enabled: !!token,
   });

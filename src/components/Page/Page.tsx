@@ -4,14 +4,12 @@ import { SpotlightControl } from "@components/molecules/Spotlight/Control";
 import { AppShell, Badge, Group } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMenu2 } from "@tabler/icons-react";
-import { useUserOnline } from "@users/hooks";
 import React from "react";
 
 import { Navbar } from "../molecules/Navbar";
 import classes from "./Page.module.css";
 
 export const Page = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  useUserOnline();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
   const MainPageHeader = (

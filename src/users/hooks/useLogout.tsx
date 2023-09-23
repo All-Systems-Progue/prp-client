@@ -1,3 +1,4 @@
+import { useAuth } from "@hooks/useAuth";
 import { showNotification } from "@mantine/notifications";
 import { IconCheck } from "@tabler/icons-react";
 import { api } from "@utils/api";
@@ -12,14 +13,19 @@ async function logoutUser(jwt: string) {
   return data;
 }
 
-export const useLogout = () =>
-  useMutation("logoutUser", logoutUser, {
-    onSuccess: () =>
+export const useLogout = () => {
+  const { removeToken } = useAuth();
+
+  return useMutation("logoutUser", logoutUser, {
+    onSuccess: () => {
+      removeToken();
       showNotification({
         title: "Success",
         message: "Logged out",
         color: "green",
         radius: "lg",
         icon: <IconCheck />,
-      }),
+      });
+    },
   });
+};

@@ -1,20 +1,20 @@
+import { useAuth } from "@hooks/useAuth";
 import { Box, Button, Group, Loader, TextInput, useMantineTheme } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { selectEditorContent } from "@redux/editorSlice";
 import { useAppSelector } from "@redux/hooks";
 import { useCreateReview, useFetchReview, useIsEditing } from "@reviews/hooks";
 import { useEffect } from "react";
-import { useCookies } from "react-cookie";
 import { useParams } from "react-router-dom";
 
 export const CreateReviewForm = (): JSX.Element => {
-  const [cookies, _] = useCookies(["token"]);
+  const { token } = useAuth();
   const theme = useMantineTheme();
   const { id } = useParams();
   const isEditing = useIsEditing();
   const editorContent = useAppSelector(selectEditorContent);
   const newReview = useCreateReview();
-  const { data, status } = useFetchReview(cookies.token, id);
+  const { data, status } = useFetchReview(token, id);
 
   const form = useForm({
     initialValues: {
@@ -53,13 +53,13 @@ export const CreateReviewForm = (): JSX.Element => {
   const handleSubmit = async (values: typeof form.values) => {
     if (isEditing) {
       newReview.mutate({
-        jwt: cookies.token,
+        jwt: token!,
         reviewData: { ...values, content: editorContent },
         id,
       });
     } else {
       newReview.mutate({
-        jwt: cookies.token,
+        jwt: token!,
         reviewData: { ...values, content: editorContent },
       });
     }
