@@ -6,6 +6,7 @@ import { useAppSelector } from "@redux/hooks";
 import { useCreateReview, useFetchReview, useIsEditing } from "@reviews/hooks";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import sanitizeHTML from "sanitize-html";
 
 export const CreateReviewForm = (): JSX.Element => {
   const { token } = useAuth();
@@ -52,15 +53,15 @@ export const CreateReviewForm = (): JSX.Element => {
 
   const handleSubmit = async (values: typeof form.values) => {
     if (isEditing) {
-      newReview.mutate({
+      await newReview.mutateAsync({
         jwt: token!,
-        reviewData: { ...values, content: editorContent },
+        reviewData: { ...values, content: sanitizeHTML(editorContent) },
         id,
       });
     } else {
-      newReview.mutate({
+      await newReview.mutateAsync({
         jwt: token!,
-        reviewData: { ...values, content: editorContent },
+        reviewData: { ...values, content: sanitizeHTML(editorContent) },
       });
     }
   };

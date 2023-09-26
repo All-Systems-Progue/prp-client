@@ -5,7 +5,7 @@ import { ReviewResults } from "./ReviewResults";
 import { Searchbar } from "./Searchbar";
 
 export const SearchReviews = (): JSX.Element => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const callback = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);

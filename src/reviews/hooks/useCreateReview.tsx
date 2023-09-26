@@ -18,7 +18,7 @@ async function createReview({ jwt, reviewData, id = null }: { jwt: string; revie
 export const useCreateReview = () =>
   useMutation("createReview", createReview, {
     onSuccess: () =>
-      showNotification({
+      void showNotification({
         title: "Success",
         message: "Review Point added",
         color: "green",

@@ -9,7 +9,11 @@ import { v4 as uuidv4 } from "uuid";
 
 import { ReviewAnalytics } from "./ReviewAnalytics";
 
-export const ReviewResults = ({ searchTerm }: { searchTerm: string }): JSX.Element => {
+type ReviewResultsProps = {
+  searchTerm: string;
+};
+
+export const ReviewResults = ({ searchTerm }: ReviewResultsProps): JSX.Element => {
   const { ref, inView } = useInView();
 
   const { data, status, isFetching, hasNextPage, fetchNextPage, isFetchingNextPage } = useInfiniteSearch(searchTerm);

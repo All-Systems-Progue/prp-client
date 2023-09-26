@@ -36,7 +36,7 @@ export function Navbar() {
         <item.icon className={classes.linkIcon} />
         <span>{item.label}</span>
       </div>
-      {item.id === "export" && <Counter arr={selectedReviews} />}
+      {item.id === "export" && selectedReviews.length > 0 && <Counter arr={selectedReviews} />}
     </Link>
   ));
 

@@ -42,11 +42,12 @@ async function meiliFetch({
   });
 }
 
-export const useInfiniteSearch = (searchTerm: string) =>
-  useInfiniteQuery(["meiliSearch", searchTerm], meiliFetch, {
+export const useInfiniteSearch = (searchTerm: string) => {
+  return useInfiniteQuery(["meiliSearch", searchTerm], meiliFetch, {
     getNextPageParam: (lastPage, allPages) => {
       const roundedTotal = Math.ceil(lastPage.estimatedTotalHits / 10) * 10;
       const hasMoreData = lastPage.offset < roundedTotal;
       return hasMoreData ? lastPage.offset + lastPage.limit : undefined;
     },
   });
+};

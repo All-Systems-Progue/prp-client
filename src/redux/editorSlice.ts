@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { RootState } from "./store";
+
 type EditorState = {
   editorContents: string;
 };
@@ -7,10 +9,6 @@ type EditorState = {
 const initialState = {
   editorContents: "",
 } as EditorState;
-
-type AppState = {
-  editor: EditorState;
-};
 
 export const editorSlice = createSlice({
   name: "editor",
@@ -24,4 +22,4 @@ export const editorSlice = createSlice({
 
 export const { refreshEditor } = editorSlice.actions;
 
-export const selectEditorContent = (state: AppState) => state.editor.editorContents;
+export const selectEditorContent = (state: RootState) => state.editor.editorContents;

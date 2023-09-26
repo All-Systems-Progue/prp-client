@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { removeReview, selectReviewsForExport } from "@reviews/reviewSlice";
 import { IconGripVertical, IconTrashX } from "@tabler/icons-react";
 import cx from "clsx";
+import parse from "html-react-parser";
 
 import classes from "./DragAndDrop.module.css";
 
@@ -36,14 +37,14 @@ export const DragAndDrop = () => {
           </div>
           <div>
             <Text fz="xl" fw={600}>
-              {review.entityType}
+              {parse(review.entityType ?? "")}
             </Text>
             <Text fz="lg">{review.category}</Text>
             <Text c="dimmed" fz="sm">
-              {review.subCategory}
+              {parse(review.subCategory ?? "")}
             </Text>
             <Text c="dimmed" size="sm">
-              {review.content}
+              {parse(review.content ?? "")}
             </Text>
           </div>
           <Box ml="md">

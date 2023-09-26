@@ -3,7 +3,6 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { refreshEditor, selectEditorContent } from "@redux/editorSlice";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { useParams } from "react-router-dom";
-import sanitizeHTML from "sanitize-html";
 
 export const Editor = () => {
   const editorContent = useAppSelector(selectEditorContent);
@@ -17,7 +16,7 @@ export const Editor = () => {
       data={id ? editorContent : ""}
       onChange={(_: any, editor: any) => {
         const editorContent = editor.getData();
-        dispatch(refreshEditor(sanitizeHTML(editorContent)));
+        dispatch(refreshEditor(editorContent));
       }}
       onReady={(editor: any) => {
         editor.editing.view.change((writer: any) => {
