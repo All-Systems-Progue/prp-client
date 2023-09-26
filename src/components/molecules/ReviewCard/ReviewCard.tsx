@@ -97,7 +97,7 @@ const ExportOptions = ({ review }: ReviewCardProps) => {
     if (isChecked) {
       dispatch(selectReview(review));
     } else {
-      dispatch(removeReview(review));
+      dispatch(removeReview(review._id!));
     }
   };
 

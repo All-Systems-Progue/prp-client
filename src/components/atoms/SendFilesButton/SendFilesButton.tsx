@@ -3,7 +3,14 @@ import { IconFileExport } from "@tabler/icons-react";
 
 import classes from "./SendFilesButton.module.css";
 
-export const SendFilesButton = (props: ButtonProps & React.ComponentPropsWithoutRef<"button"> & { count: number }) => {
+type SendFilesButtonProps = {
+  count: number;
+  onClick?: () => void;
+};
+
+export const SendFilesButton = (
+  props: ButtonProps & React.ComponentPropsWithoutRef<"button"> & SendFilesButtonProps,
+) => {
   return (
     <Button
       classNames={classes}
@@ -11,6 +18,7 @@ export const SendFilesButton = (props: ButtonProps & React.ComponentPropsWithout
       {...props}
       leftSection={String(props.count)}
       rightSection={<IconFileExport style={{ width: rem(18) }} />}
+      onClick={props.onClick}
     >
       {props.children}
     </Button>

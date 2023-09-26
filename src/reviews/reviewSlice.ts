@@ -16,9 +16,9 @@ export const reviewSlice = createSlice({
       // state.selectedReviews ??= [];
       state.selectedReviews.push(action.payload);
     },
-    removeReview: (state, action: PayloadAction<IReview>) => {
+    removeReview: (state, action: PayloadAction<string>) => {
       state.selectedReviews?.splice(
-        state.selectedReviews.findIndex((review) => review._id === action.payload._id),
+        state.selectedReviews.findIndex((review) => review._id === action.payload),
         1,
       );
     },

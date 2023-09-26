@@ -7,7 +7,7 @@ import moment from "moment";
  * @param data HTML string of file contents to be saved
  * @example saveDocxFile("<p>Hello, World</p>");
  */
-const saveDocxFile = async (data: string): Promise<void> => {
+export const saveDocxFile = async (data: string): Promise<void> => {
   const doc = await HTMLtoDOCX(data, null, {
     table: { row: { cantSplit: true } },
     footer: true,
@@ -18,10 +18,8 @@ const saveDocxFile = async (data: string): Promise<void> => {
   saveAs(doc, `${dateString}.docx`);
 };
 
-const renderHTML = (str: string): HTMLElement => {
+export const renderHTML = (str: string): HTMLElement => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(str, "text/html");
   return doc.body;
 };
-
-export { renderHTML, saveDocxFile };

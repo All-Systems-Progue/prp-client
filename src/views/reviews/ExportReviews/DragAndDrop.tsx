@@ -1,16 +1,24 @@
+import { Popover } from "@components/atoms";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import { rem, Text } from "@mantine/core";
+import { Avatar, Box, rem, Text } from "@mantine/core";
 import { useListState } from "@mantine/hooks";
-import { useAppSelector } from "@redux/hooks";
-import { selectReviewsForExport } from "@reviews/reviewSlice";
-import { IconGripVertical } from "@tabler/icons-react";
+import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { removeReview, selectReviewsForExport } from "@reviews/reviewSlice";
+import { IconGripVertical, IconTrashX } from "@tabler/icons-react";
 import cx from "clsx";
 
 import classes from "./DragAndDrop.module.css";
 
 export const DragAndDrop = () => {
   const selectedReviews = useAppSelector(selectReviewsForExport);
+  const dispatch = useAppDispatch();
   const [state, handlers] = useListState(selectedReviews);
+
+  const onRemove = (reviewId: string) => {
+    const index = state.findIndex((review) => review._id === reviewId);
+    handlers.remove(index);
+    dispatch(removeReview(reviewId));
+  };
 
   const items = state.map((review, index) => (
     <Draggable key={review._id} index={index} draggableId={review._id!}>
@@ -38,6 +46,18 @@ export const DragAndDrop = () => {
               {review.content}
             </Text>
           </div>
+          <Box ml="md">
+            <Popover
+              middlewares={{ shift: true, flip: true }}
+              position="left"
+              target={
+                <Avatar radius="xl">
+                  <IconTrashX size={24} cursor="pointer" onClick={() => onRemove(review._id!)} />
+                </Avatar>
+              }
+              popover="Remove from export"
+            />
+          </Box>
         </div>
       )}
     </Draggable>

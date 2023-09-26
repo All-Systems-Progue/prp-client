@@ -1,15 +1,19 @@
-import { Popover as MantinePopover, Text } from "@mantine/core";
+import { Popover as MantinePopover, PopoverProps, Text } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import { ReactElement, useState } from "react";
 
-export const Popover = ({ target, popover }: { target: ReactElement; popover: string }): JSX.Element => {
+type Props = {
+  target: ReactElement;
+  popover: string;
+} & PopoverProps;
+export const Popover = ({ target, popover, ...props }: Props): JSX.Element => {
   const [opened, setOpened] = useState(false);
 
   return (
     <MantinePopover
       opened={opened}
       onClose={() => setOpened(false)}
-      position="bottom"
+      position={props.position}
       trapFocus={false}
       closeOnEscape={false}
       radius="xl"
